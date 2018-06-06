@@ -3,7 +3,7 @@ import UIKit
 
 /// Returns a specialised representation for a `<figcaption>` element.
 ///
-class FigcaptionElementConverter: ElementConverter {
+class FigcaptionElementConverter: InputElementConverter {
     
     let figcaptionFormatter = FigcaptionFormatter(placeholderAttributes: nil)
 

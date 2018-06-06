@@ -3,7 +3,7 @@ import UIKit
 
 /// Converts `<br>` elements into a `String(.lineSeparator)`.
 ///
-class BRElementConverter: ElementConverter {
+class BRElementConverter: InputElementConverter {
     
     // MARK: - ElementConverter
     

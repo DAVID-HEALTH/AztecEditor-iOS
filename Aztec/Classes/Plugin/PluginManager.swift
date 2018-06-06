@@ -64,9 +64,19 @@ class PluginManager {
 // MARK: - AttributedStringSerializerCustomizer
 
 extension PluginManager: AttributedStringSerializerCustomizer {
-    func converter(for element: ElementNode) -> ElementConverter? {
+    func inputConverter(for element: ElementNode) -> InputElementConverter? {
         for plugin in plugins {
-            if let converter = plugin.converter(for: element) {
+            if let converter = plugin.inputConverter(for: element) {
+                return converter
+            }
+        }
+        
+        return nil
+    }
+    
+    func outputConverter(for element: ElementNode) -> OutputElementConverter? {
+        for plugin in plugins {
+            if let converter = plugin.inputConverter(for: element) {
                 return converter
             }
         }

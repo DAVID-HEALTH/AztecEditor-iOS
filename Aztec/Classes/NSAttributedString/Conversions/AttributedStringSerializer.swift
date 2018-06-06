@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol AttributedStringSerializerCustomizer {
-    func converter(for: ElementNode) -> ElementConverter?
+    func converter(for: ElementNode) -> InputElementConverter?
 }
 
 /// Composes an attributed string from an HTML tree.
@@ -12,7 +12,7 @@ class AttributedStringSerializer {
     
     // MARK: - Element Converters
     
-    private static let defaultElementConverters: [Element: ElementConverter] = [
+    private static let defaultElementConverters: [Element: InputElementConverter] = [
         .br: BRElementConverter(),
         .cite: CiteElementConverter(),
         .figcaption: FigcaptionElementConverter(),
@@ -152,7 +152,7 @@ class AttributedStringSerializer {
     //
     private(set) lazy var genericElementConverter = GenericElementConverter()
     
-    lazy var childrenSerializer: ElementConverter.ChildrenSerializer = { [weak self] (children, attributes) in
+    lazy var childrenSerializer: InputElementConverter.ChildrenSerializer = { [weak self] (children, attributes) in
         let content = NSMutableAttributedString()
         
         guard let `self` = self else {
@@ -203,7 +203,7 @@ private extension AttributedStringSerializer {
     /// Some element types have an implicit representation that doesn't really follow the standard conversion logic.
     /// Element Converters take care of that.
     ///
-    func converter(for element: ElementNode) -> ElementConverter {
+    func converter(for element: ElementNode) -> InputElementConverter {
         if let converter = customizer?.converter(for: element) {
             return converter
         }

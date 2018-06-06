@@ -22,7 +22,9 @@ open class Plugin {
     ///
     open func process(inputHTMLTree tree: RootNode) { return }
     
-    open func converter(for element: ElementNode) -> ElementConverter? { return nil }
+    /// Returns the input converter for the specified `ElementNode`.
+    ///
+    open func converter(forInput element: ElementNode) -> InputElementConverter? { return nil }
     
     // MARK: - Output Processing
     
@@ -40,6 +42,10 @@ open class Plugin {
     /// When a conversion is not implemented, just return nil.
     ///
     open func convert(_ paragraphProperty: ParagraphProperty) -> ElementNode? { return nil }
+    
+    /// Returns the output converter for the specified `ElementNode`.
+    ///
+    open func converter(forOutput element: ElementNode) -> OutputElementConverter? { return nil }
 
     // MARK: - Equatable
     

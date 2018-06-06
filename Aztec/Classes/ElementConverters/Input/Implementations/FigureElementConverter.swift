@@ -3,7 +3,7 @@ import UIKit
 
 /// Returns a specialised representation for a `<figure>` element.
 ///
-class FigureElementConverter: ElementConverter {
+class FigureElementConverter: InputElementConverter {
     
     // MARK: - ElementConverter
     

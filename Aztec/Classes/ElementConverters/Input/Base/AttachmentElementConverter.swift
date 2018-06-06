@@ -3,7 +3,7 @@ import UIKit
 
 /// For any object that converts an element into an attachment.
 ///
-protocol AttachmentElementConverter: ElementConverter {
+protocol AttachmentElementConverter: InputElementConverter {
     associatedtype AttachmentType: NSTextAttachment
     
     func convert(

@@ -3,7 +3,7 @@ import UIKit
 
 /// Converts a generic element to `NSAttributedString`.  Should only be used if a specific converter is not found.
 ///
-class GenericElementConverter: ElementConverter {
+class GenericElementConverter: InputElementConverter {
     
     // MARK: - Element Support
     

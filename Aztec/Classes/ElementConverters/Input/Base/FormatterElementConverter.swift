@@ -3,7 +3,7 @@ import UIKit
 
 /// `ElementConverter` subclass for converters that just apply a formatter to the inherited attributes.
 ///
-protocol FormatterElementConverter: ElementConverter {
+protocol FormatterElementConverter: InputElementConverter {
     func attributes(for element: ElementNode, inheriting inheritedAttributes: [NSAttributedStringKey: Any]) -> [NSAttributedStringKey: Any]
     func formatter() -> AttributeFormatter
 }
